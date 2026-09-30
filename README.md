@@ -1,56 +1,57 @@
-# Welcome to your Expo app 👋
+# Pocket Ledger
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A private, local-first, offline-first personal budget tracker built with **Expo**, **React Native**, **TypeScript**, and **Expo Router**.
 
-## Get started
+## Features (Phase 1 — Native UI Shell Port)
 
-1. Install dependencies
+- **Native Mobile Experience**: Android and iOS native mobile performance.
+- **Custom Floating Navigation**:
+  - 4 icon-only primary destinations (Home, Activity, Budgets, Bills) with accessibility support.
+  - Separate 54×54 circular More action node with animated rotation.
+  - Upward tools menu (Accounts, Debts, Reports, Settings).
+  - 4-layer stack architecture with full-screen `BlurView` backdrop covering underlying content and dock.
+- **Strict Integer-Centavo Standard**: All currency calculations and domain values use exact integer centavos (₱1,500.25 = 150025) with zero floating-point arithmetic drift.
+- **8 Native Feature Screens**:
+  - **Dashboard**: Greeting, Available Cash hero card, quick actions, monthly flow, budgets preview, upcoming bills, debts summary, and recent transactions.
+  - **Activity**: Inflow vs outflow summary, filter tabs (All, Income, Expense, Transfers), and transaction history.
+  - **Budgets**: Category progress bars with threshold alerts (<80% green, 80–99% amber, ≥100% red).
+  - **Bills**: Priority and status badges, due date countdowns, and responsive row layouts.
+  - **Accounts**: Account cards with distinct credit card separation (outstanding balance vs available credit) and strict exclusion from available cash.
+  - **Debts**: Direction filter (I Owe vs Owed to Me) with repayment progress visualization.
+  - **Reports**: Net savings metrics and spending distribution breakdown.
+  - **Settings**: Local-first security, backup, preferences, and system information.
 
+## Getting Started
+
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start the app
-
+2. Start the Metro development server:
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. Run the test suite:
+   ```bash
+   npm test
+   ```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+4. Run the TypeScript check:
+   ```bash
+   npx tsc --noEmit
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+5. Run Expo doctor:
+   ```bash
+   npx expo-doctor
+   ```
 
-## Get a fresh project
+## Architecture & Roadmap
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Refer to `docs/` for project governance:
+- `docs/PHASE_TRACKER.md` — Project milestone tracking (Phase 0–5).
+- `docs/SESSION_LOG.md` — Detailed session changelog.
+- `docs/LAST_SESSION.md` — Latest handoff state for future sessions.
+- `AGENTS.md` — Engineering rules and domain constraints.
